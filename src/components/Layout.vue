@@ -5,17 +5,15 @@
 
   <div
     id="footer"
-    class="z-40 fixed pt-1 bottom-0 left-0 right-0 w-full flex mx-auto max-w-[900px]"
+    class="z-40 fixed pt-0 bottom-0 left-0 right-0 w-full flex mx-auto max-w-[900px] bg-green-900 border-t-4 border-orange-600"
   >
-    <div class="w-full flex px-2">
+    <div class="w-full flex">
       <div
-        class="flex flex-grow w-1/4 items-center justify-center py-2 cursor-pointer"
+        class="flex flex-grow w-1/4 items-center justify-center cursor-pointer border-t-8 border-yellow-800"
         @click="goTo('/pic')"
       >
-        <div
-          class="text-center w-full border-white border-2 rounded-2xl py-2 bg-green-900"
-        >
-          <div class="text-white text-2xl">
+        <div class="text-center w-full border-gray-600 border-r py-2 pb-3">
+          <div class="text-orange-300 text-2xl">
             <i class="bi bi-camera"></i>
           </div>
 
@@ -23,26 +21,22 @@
         </div>
       </div>
       <div
-        class="flex flex-grow w-1/4 items-center justify-center py-2 cursor-pointer ml-1"
+        class="flex flex-grow w-1/4 items-center justify-center cursor-pointer border-t-8 border-yellow-800"
         @click="goTo('/submit')"
       >
-        <div
-          class="text-center w-full border-white border-2 rounded-2xl py-2 bg-green-900"
-        >
-          <div class="text-white text-2xl">
+        <div class="text-center w-full border-gray-600 border-r py-2 pb-3">
+          <div class="text-orange-300 text-2xl">
             <i class="bi bi-upload"></i>
           </div>
           <div class="text-md text-white rounded-full pt-0">อัพโพสต์</div>
         </div>
       </div>
       <div
-        class="flex flex-grow w-1/4 items-center justify-center py-2 cursor-pointer ml-1"
+        class="flex flex-grow w-1/4 items-center justify-center cursor-pointer border-t-8 border-yellow-800"
         @click="goTo('/condition')"
       >
-        <div
-          class="text-center w-full border-white border-2 rounded-2xl py-2 bg-green-900"
-        >
-          <div class="text-white text-2xl">
+        <div class="text-center w-full border-gray-600 border-r py-2 pb-3">
+          <div class="text-orange-300 text-2xl">
             <i class="bi bi-blockquote-right"></i>
           </div>
           <div class="text-md text-white rounded-full pt-0">เงื่อนไข</div>
@@ -50,13 +44,11 @@
       </div>
 
       <div
-        class="flex flex-grow w-1/4 items-center justify-center py-2 cursor-pointer ml-1"
+        class="flex flex-grow w-1/4 items-center justify-center cursor-pointer border-t-8 border-yellow-800"
         @click="goTo('https://corporate.lotuss.com')"
       >
-        <div
-          class="text-center w-full border-white border-2 rounded-2xl py-2 bg-green-900"
-        >
-          <div class="text-white text-2xl">
+        <div class="text-center w-full py-2 pb-3">
+          <div class="text-orange-300 text-2xl">
             <i class="bi bi-trophy"></i>
           </div>
           <div class="text-md text-white rounded-full pt-0">ประกาศผล</div>

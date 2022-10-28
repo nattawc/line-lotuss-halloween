@@ -94,29 +94,32 @@
     class="content w-full xl:w-2/3 lg:w-2/3 md:w-2/3 mx-auto px-5"
   >
     <img :src="uploadedUrl" />
-    <div class="flex">
-      <a
-        :href="uploadedUrl + '?openExternalBrowser=1'"
+
+    <ShareNetwork
+      :url="uploadedUrl"
+      network="facebook"
+      hashtags="โลตัสฮาโลวีนเวิร์ส"
+      title="แต่งหน้าผี แต่งตัวผีมาโลตัส"
+      quote="แต่งหน้าผี แต่งตัวผีมาโลตัส"
+      class="mt-5 w-full"
+    >
+      <button
         type="button"
-        class="mt-5 w-full text-2xl text-center font-bold px-3 py-2 rounded-2xl border-b-4 border-l-2 shadow-lg bg-yellow-800 border-yellow-900 text-white rounded-r-none"
+        class="mt-2 text-2xl w-full font-bold px-3 py-2 rounded-full border-b-4 border-l-2 shadow-lg bg-blue-900 border-blue-800 text-white"
       >
-        <span>ดาวน์โหลด</span>
-      </a>
-      <ShareNetwork
-        :url="uploadedUrl"
-        network="facebook"
-        hashtags="โลตัสฮาโลวีนเวิร์ส"
-        title="แต่งหน้าผี แต่งตัวผีมาโลตัส"
-        quote="แต่งหน้าผี แต่งตัวผีมาโลตัส"
-        class="mt-5 w-full"
-      >
-        <button
-          type="button"
-          class="text-2xl w-full font-bold px-3 py-2 rounded-2xl border-b-4 border-l-2 shadow-lg bg-blue-900 border-blue-800 text-white rounded-l-none"
-        >
-          แชร์ทันที
-        </button>
-      </ShareNetwork>
+        แชร์ทันที
+      </button>
+    </ShareNetwork>
+    <a
+      :href="uploadedUrl + '?openExternalBrowser=1'"
+      type="button"
+      class="mt-2 w-full text-2xl text-center font-bold px-3 py-2 rounded-full border-b-4 border-l-2 shadow-lg bg-yellow-800 border-yellow-900 text-white"
+    >
+      <span>ดาวน์โหลด</span> </a
+    ><br />
+    <div class="text-center text-white py-3 px-10">
+      หากไม่สามารถดาวน์โหลดรูปได้
+      กรุณากดค้างที่รูปแล้วเลือกบันทึกลงในมือถือของท่าน
     </div>
   </div>
 </template>
