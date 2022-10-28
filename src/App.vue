@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div
+    class="board mx-auto max-w-[900px] min-h-screen flex flex-col items-center"
+  >
     <Layout />
-    <router-view /><br /><br /><br />
+    <router-view />
   </div>
 </template>
 <script>

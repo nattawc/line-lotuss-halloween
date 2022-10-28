@@ -185,7 +185,17 @@ export default class Service {
 
     return axios.post(configs.urlApi, formData).then((res) => res.data);
   }
-
+  uploadPic(formData) {
+    formData.append("prefix", configs.prefix.toLowerCase());
+    const axiosConfig = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+    return axios
+      .post(configs.urlUpload + "/lotuss-hal.php", formData, axiosConfig)
+      .then((res) => res.data);
+  }
   uploadBill(formData) {
     formData.append("prefix", configs.prefix.toLowerCase());
     const axiosConfig = {

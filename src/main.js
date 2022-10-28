@@ -6,7 +6,7 @@ import store from "./store";
 import VueTheMask from "vue-the-mask";
 import VueSweetalert2 from "vue-sweetalert2";
 import Vue3Geolocation from "vue3-geolocation";
-
+import VueSocialSharing from "vue-social-sharing";
 import "sweetalert2/dist/sweetalert2.min.css";
 
 import "./assets/css/tailwind.css";
@@ -26,4 +26,5 @@ app.use(VueTheMask);
 app.use(Vue3Geolocation);
 app.use(store);
 app.use(router);
+app.use(VueSocialSharing);
 app.mount("#app");

@@ -1,25 +1,15 @@
 <template>
   <div class="content w-full xl:w-2/3 lg:w-2/3 md:w-2/3 mx-auto">
-    <h1
-      class="text-center text-3xl font-bold text-white drop-shadow-lg shadow-black"
-    >
-      แต่งหน้าผี<br />แต่งตัวผีมาโลตัส
-    </h1>
-
-    <div class="text-center mx-auto px-10">
+    <div class="text-center text-white mx-auto px-10">
+      <h1 class="font-bold text-3xl text-white mt-20">ขอบคุณที่ร่วมกิจกรรม</h1>
+      กรุณารอการตรวจสอบจากเจ้าหน้าที่ค่ะ<br /><br />
+      <br />
       <button
-        @click="goTo('/pic')"
-        type="button"
-        class="mt-5 w-full text-2xl font-bold px-3 py-3 rounded-full border-b-4 border-l-2 shadow-lg bg-yellow-800 border-yellow-900 text-white"
-      >
-        <span>ใส่กรอบรูป</span></button
-      ><br />
-      <button
-        @click="goTo('/submit')"
+        @click="liffCloseWindow"
         type="button"
         class="mt-5 w-full text-2xl font-bold px-3 py-3 rounded-full border-b-4 border-l-2 shadow-lg bg-blue-900 border-blue-700 text-white"
       >
-        <span>อัพโหลดการโพสต์</span>
+        <span>ปิดหน้าต่าง</span>
       </button>
     </div>
   </div>

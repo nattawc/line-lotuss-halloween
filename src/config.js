@@ -1,5 +1,5 @@
 const configs = {
-  prefix: "GOLDKSH",
+  prefix: "LOTUSSHAL",
   lineLiffId: "1656931817-gJ0JZww8",
   urlApp: "https://localhost:3000",
   urlApi: "https://conductor-v1.line-th.com/api/connector",
