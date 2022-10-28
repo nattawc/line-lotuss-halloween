@@ -98,7 +98,7 @@
       <a
         :href="uploadedUrl + '?openExternalBrowser=1'"
         type="button"
-        class="mt-5 w-full text-2xl font-bold px-3 py-2 rounded-2xl border-b-4 border-l-2 shadow-lg bg-yellow-800 border-yellow-900 text-white rounded-r-none"
+        class="mt-5 w-full text-2xl text-center font-bold px-3 py-2 rounded-2xl border-b-4 border-l-2 shadow-lg bg-yellow-800 border-yellow-900 text-white rounded-r-none"
       >
         <span>ดาวน์โหลด</span>
       </a>

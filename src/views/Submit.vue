@@ -429,12 +429,18 @@ export default {
             if (data.isSuccess === 1) {
               let formData = new FormData();
               formData.append("line_id", this.userLineId);
-              formData.append("reg_name", this.inputFName);
-              formData.append("reg_mobile", this.inputMobileRaw);
-              formData.append("line_id", this.userLineId);
+              formData.append("name", this.inputFName);
+              formData.append("mobile", this.inputMobileRaw);
               formData.append("submit_pic", data.uploadResult);
               formData.append("submit_tel", this.inputAmount);
-
+              formData.append(
+                "reg_data",
+                JSON.stringify({
+                  PDPA: this.inputAccept1,
+                  CONDITION: this.inputAccept2,
+                  NAME: this.inputFName,
+                })
+              );
               this.service
                 .submitBill(formData)
                 .then((rez) => {
