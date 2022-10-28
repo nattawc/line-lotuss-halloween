@@ -1,11 +1,14 @@
 <template>
-  <div class="content w-full xl:w-2/3 lg:w-2/3 md:w-2/3 mx-auto">
+  <div class="content w-full xl:w-2/3 lg:w-2/3 md:w-2/3 mx-auto text-center">
     <h1
       class="text-center text-3xl font-bold text-white drop-shadow-lg shadow-black"
     >
       แต่งหน้าผี<br />แต่งตัวผีมาโลตัส
     </h1>
-
+    <br />
+    <div class="text-white">
+      เริ่มรายการตั้งแต่วันที่ 29-31 ตุลาคม 2565<br />จำกัดจำนวน 3,000 สิทธิ์แรก
+    </div>
     <div class="text-center mx-auto px-10">
       <button
         @click="goTo('/pic')"

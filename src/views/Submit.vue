@@ -58,17 +58,128 @@
             <p class="text-xs text-gray-500"></p>
           </div>
         </div>
+        <div class="text-gray-700 font-bold mt-3 mb-2">ชื่อ - นามสกุล</div>
+        <div class="relative flex w-full flex-wrap items-stretch mb-3">
+          <input
+            v-model="inputFName"
+            type="text"
+            placeholder="ชื่อ - นามสกุล"
+            class="px-3 py-3 relative border-0 w-full bg-gray-100"
+          />
+        </div>
 
         <div class="text-gray-700 font-bold mt-3 mb-2">เบอร์มือถือ</div>
         <div class="relative flex w-full flex-wrap items-stretch mb-3">
           <input
-            v-model="inputAmount"
+            v-model="inputMobile"
             type="tel"
             placeholder="เบอร์มือถือที่เป็นสมาชิกมายโลตัส"
             class="px-3 py-3 relative border-0 w-full bg-gray-100"
             v-mask="'(###) ###-####'"
           />
         </div>
+
+        <div class="mt-10">
+          <div class="mt-2">
+            <div class="mt-1">
+              <label class="inline-flex">
+                <input
+                  type="checkbox"
+                  class="form-checkbox text-blue-800 border-0 h-6 w-6 mt-1 bg-gray-100"
+                  v-model="inputAccept1"
+                  @click="showModalAccept1 = true"
+                />
+                <span class="ml-3 mr-5 leading-5"
+                  >ข้าพเจ้าได้อ่านและยอมรับนโยบายการคุ้มครองข้อมูลส่วนบุคคลแล้ว</span
+                >
+              </label>
+            </div>
+            <div class="mt-3">
+              <label class="inline-flex">
+                <input
+                  type="checkbox"
+                  class="form-checkbox text-blue-800 border-0 h-6 w-6 mt-1 bg-gray-100"
+                  v-model="inputAccept2"
+                  @click="showModalAccept2 = true"
+                />
+                <span class="ml-3 mr-5 leading-5"
+                  >ข้าพเจ้าได้อ่านและยอมรับเงื่อนไขและกติกาการร่วมกิจกรรมแล้ว</span
+                >
+              </label>
+            </div>
+          </div>
+        </div>
+        <div v-if="showModalAccept1">
+          <div
+            class="z-40 fixed inset-0 bg-black bg-opacity-50 h-screen w-full flex justify-center items-start md:items-center pt-10 md:pt-0"
+          >
+            <div
+              class="bg-white z-50 pacity-0 transform relative w-11/12 md:w-1/2 rounded shadow-lg transition-opacity transition-transform duration-300"
+              style="height: 80vh"
+            >
+              <button
+                @click="showModalAccept1 = false"
+                class="absolute -top-3 -right-3 bg-yellow-800 hover:bg-yellow-900 text-2xl w-10 h-10 rounded-full focus:outline-none text-white"
+              >
+                &cross;
+              </button>
+              <button
+                @click="showModalAccept1 = false"
+                class="absolute -bottom-5 -left-1 w-full px-10 text-2xl font-bold px-3 py-2 m-1 rounded-b border-b-4 border-l-2 shadow-lg bg-blue-800 border-blue-800 text-white"
+              >
+                ยอมรับ
+              </button>
+              <div class="p-5 px-7">
+                <h2 class="font-bold text-blue-800 text-xl">
+                  {{ headerAccept1 }}
+                </h2>
+              </div>
+
+              <div
+                class="text-sm w-full px-7 pb-20 overflow-x-hidden overflow-y-auto"
+                style="height: 65vh"
+              >
+                <div v-html="contentAccept1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-if="showModalAccept2">
+          <div
+            class="z-40 fixed inset-0 bg-black bg-opacity-50 h-screen w-full flex justify-center items-start md:items-center pt-10 md:pt-0"
+          >
+            <div
+              class="bg-white z-50 pacity-0 transform relative w-11/12 md:w-1/2 rounded shadow-lg transition-opacity transition-transform duration-300"
+              style="height: 80vh"
+            >
+              <button
+                @click="showModalAccept2 = false"
+                class="absolute -top-3 -right-3 bg-yellow-800 hover:bg-yellow-900 text-2xl w-10 h-10 rounded-full focus:outline-none text-white"
+              >
+                &cross;
+              </button>
+              <button
+                @click="showModalAccept2 = false"
+                class="absolute -bottom-5 -left-1 w-full px-10 text-2xl font-bold px-3 py-2 m-1 rounded-b border-b-4 border-l-2 shadow-lg bg-blue-800 border-blue-800 text-white"
+              >
+                ยอมรับ
+              </button>
+              <div class="p-5 px-7">
+                <h2 class="font-bold text-blue-800 text-xl">
+                  {{ headerAccept2 }}
+                </h2>
+              </div>
+
+              <div
+                class="text-sm w-full px-7 pb-20 overflow-x-hidden overflow-y-auto"
+                style="height: 65vh"
+              >
+                <div v-html="contentAccept2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of modal -->
         <!-- -->
         <!-- <div class="text-gray-700 font-bold mb-2">วันที่ซื้อ</div>
               <div class="relative flex w-full flex-wrap items-stretch mb-3">
@@ -117,6 +228,23 @@ import liff from "@line/liff";
 import router from "../router";
 import Service from "../service/service";
 import configs from "../config";
+function unmask(maskedValue, mask) {
+  let defaultTokens = ["#", "X", "S", "A", "a", "!"];
+  let unmaskedValue = "";
+  let isToken;
+  for (let i = 0; i < maskedValue.length; i++) {
+    isToken = false;
+    for (let j = 0; j < defaultTokens.length; j++) {
+      if (mask[i] == defaultTokens[j]) {
+        isToken = true;
+      }
+    }
+    if (isToken) {
+      unmaskedValue += maskedValue[i];
+    }
+  }
+  return unmaskedValue;
+}
 export default {
   name: "Submit",
   data() {
@@ -152,6 +280,24 @@ export default {
       shopInfo: null,
       minBill: 0,
 
+      showModalAccept1: false,
+      showModalAccept2: false,
+      headerAccept1: null,
+      headerAccept2: null,
+      contentAccept1: null,
+      contentAccept2: null,
+      inputFName: "",
+      inputLName: "",
+      inputMobile: "",
+      inputMobileRaw: "",
+      inputShopName: "",
+      inputShopBranch: "",
+      inputProvince: "",
+      inputAmount: "",
+      disableInputFName: false,
+      disableInputMobile: false,
+      disableShopBranch: true,
+
       ListProvinces: null,
       ListShops: null,
       ListBranches: null,
@@ -172,15 +318,6 @@ export default {
     let todate = today.getDate() < 10 ? "0" + today.getDate() : today.getDate();
     this.service = new Service();
     this.submitBuyDate = today.getFullYear() + "-" + month + "-" + todate;
-
-    this.$getLocation()
-      .then((coordinates) => {
-        this.userCoordinates = coordinates;
-        // console.log(coordinates);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   },
   async mounted() {
     await liff.ready;
@@ -190,6 +327,18 @@ export default {
       const profile = await liff.getProfile();
       this.userLineId = profile.userId;
     }
+    await this.service.getContent("PDPA").then((data) => {
+      if (data.content) {
+        this.headerAccept1 = data.content.PC_HEADER;
+        this.contentAccept1 = data.content.PC_BODY;
+      }
+    });
+    await this.service.getContent("CONDITION").then((data) => {
+      if (data.content) {
+        this.headerAccept2 = data.content.PC_HEADER;
+        this.contentAccept2 = data.content.PC_BODY;
+      }
+    });
   },
   methods: {
     liffCloseWindow() {
@@ -225,7 +374,31 @@ export default {
       let isError = false;
       let txtError = "";
       this.btnDisable = true;
-
+      if (this.inputFName === "") {
+        isError = true;
+        txtError += "<li>กรุณากรอกชื่อ-นามสกุล</li>";
+      }
+      if (this.inputMobile === "") {
+        isError = true;
+        txtError += "<li>กรุณากรอกเบอร์มือถือ</li>";
+      } else {
+        this.inputMobileRaw = unmask(
+          this.inputMobile,
+          "(###) ###-####"
+        ).toString();
+        if (this.inputMobileRaw.length != 10) {
+          isError = true;
+          txtError += "<li>เบอร์มือถือไม่ถูกต้อง</li>";
+        }
+      }
+      if (!this.inputAccept1) {
+        isError = true;
+        txtError += "<li>กรุณายอมรับนโยบายการคุ้มครองข้อมูล</li>";
+      }
+      if (!this.inputAccept2) {
+        isError = true;
+        txtError += "<li>กรุณายอมรับกติกาการร่วมกิจกรรม</li>";
+      }
       // if (this.submitBuyShop === null || this.submitBuyShopId == 0) {
       //   isError = true;
       //   txtError += "<li>กรุณาระบุสาขาหรือช่องทางการซื้อ</li>";
@@ -238,15 +411,6 @@ export default {
       //     isError = true;
       //     txtError += "<li>กรุณาระบุร้านค้าย่อยที่ท่านซื้อ</li>";
       //   }
-
-      if (
-        this.inputAmount === null ||
-        this.inputAmount === "" ||
-        this.inputAmount == 0
-      ) {
-        isError = true;
-        txtError += "<li>กรุณาระบุเบอร์มือถือ</li>";
-      }
 
       if (this.submitPic === null || this.submitPic === "") {
         isError = true;
@@ -264,6 +428,9 @@ export default {
             console.log(data);
             if (data.isSuccess === 1) {
               let formData = new FormData();
+              formData.append("line_id", this.userLineId);
+              formData.append("reg_name", this.inputFName);
+              formData.append("reg_mobile", this.inputMobileRaw);
               formData.append("line_id", this.userLineId);
               formData.append("submit_pic", data.uploadResult);
               formData.append("submit_tel", this.inputAmount);

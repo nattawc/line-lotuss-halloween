@@ -33,4 +33,23 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+#app .content {
+  padding-bottom: 150px;
+}
+#app .content li {
+  display: list-item;
+}
+#app .content ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+#app .content ol {
+  list-style: decimal;
+  margin-left: 20px;
+}
+#app .content p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+</style>

@@ -9,13 +9,13 @@
   >
     <div class="w-full flex px-2">
       <div
-        class="flex flex-grow w-1/2 items-center justify-center py-2 cursor-pointer mr-1"
+        class="flex flex-grow w-1/4 items-center justify-center py-2 cursor-pointer"
         @click="goTo('/pic')"
       >
         <div
-          class="text-center w-full border-white border-2 rounded-2xl p-5 bg-green-900"
+          class="text-center w-full border-white border-2 rounded-2xl py-2 bg-green-900"
         >
-          <div class="text-white text-3xl">
+          <div class="text-white text-2xl">
             <i class="bi bi-camera"></i>
           </div>
 
@@ -23,32 +23,45 @@
         </div>
       </div>
       <div
-        class="flex flex-grow w-1/2 items-center justify-center py-2 cursor-pointer ml-1"
+        class="flex flex-grow w-1/4 items-center justify-center py-2 cursor-pointer ml-1"
         @click="goTo('/submit')"
       >
         <div
-          class="text-center w-full border-white border-2 rounded-2xl p-5 bg-green-900"
+          class="text-center w-full border-white border-2 rounded-2xl py-2 bg-green-900"
         >
-          <div class="text-white text-3xl">
-            <i class="bi bi-share"></i>
+          <div class="text-white text-2xl">
+            <i class="bi bi-upload"></i>
           </div>
           <div class="text-md text-white rounded-full pt-0">อัพโพสต์</div>
         </div>
       </div>
-
-      <!-- <div
-        class="flex flex-grow w-1/5 items-center justify-center py-2 cursor-pointer ml-1"
-        @click="goTo('/winner')"
+      <div
+        class="flex flex-grow w-1/4 items-center justify-center py-2 cursor-pointer ml-1"
+        @click="goTo('/condition')"
       >
         <div
-          class="text-center w-full border-white border-2 rounded-2xl p-5 bg-green-900"
+          class="text-center w-full border-white border-2 rounded-2xl py-2 bg-green-900"
         >
-          <div class="text-white text-3xl">
+          <div class="text-white text-2xl">
+            <i class="bi bi-blockquote-right"></i>
+          </div>
+          <div class="text-md text-white rounded-full pt-0">เงื่อนไข</div>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-grow w-1/4 items-center justify-center py-2 cursor-pointer ml-1"
+        @click="goTo('https://corporate.lotuss.com')"
+      >
+        <div
+          class="text-center w-full border-white border-2 rounded-2xl py-2 bg-green-900"
+        >
+          <div class="text-white text-2xl">
             <i class="bi bi-trophy"></i>
           </div>
           <div class="text-md text-white rounded-full pt-0">ประกาศผล</div>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>

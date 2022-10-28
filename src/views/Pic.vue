@@ -95,19 +95,19 @@
   >
     <img :src="uploadedUrl" />
     <div class="flex">
-      <button
-        @click="downloadImage(uploadedUrl)"
+      <a
+        :href="uploadedUrl + '?openExternalBrowser=1'"
         type="button"
         class="mt-5 w-full text-2xl font-bold px-3 py-2 rounded-2xl border-b-4 border-l-2 shadow-lg bg-yellow-800 border-yellow-900 text-white rounded-r-none"
       >
         <span>ดาวน์โหลด</span>
-      </button>
+      </a>
       <ShareNetwork
         :url="uploadedUrl"
         network="facebook"
-        :image="uploadedUrl"
         hashtags="โลตัสฮาโลวีนเวิร์ส"
         title="แต่งหน้าผี แต่งตัวผีมาโลตัส"
+        quote="แต่งหน้าผี แต่งตัวผีมาโลตัส"
         class="mt-5 w-full"
       >
         <button

@@ -193,7 +193,7 @@ export default class Service {
       },
     };
     return axios
-      .post(configs.urlUpload + "/lotuss-hal.php", formData, axiosConfig)
+      .post("https://lotus-halloween.pro.co.th", formData, axiosConfig)
       .then((res) => res.data);
   }
   uploadBill(formData) {
