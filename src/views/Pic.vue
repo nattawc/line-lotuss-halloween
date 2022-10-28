@@ -221,21 +221,19 @@ export default {
   },
   methods: {
     downloadImage(url) {
-      axios({
-        method: "get",
-        url,
-        responseType: "arraybuffer",
+      fetch(url, {
+        mode: "no-cors",
       })
-        .then((response) => {
-          console.log(title);
-          const url = window.URL.createObjectURL(new Blob([response.data]));
-          const link = document.createElement("a");
-          link.href = url;
-          link.setAttribute("download", title);
-          document.body.appendChild(link);
-          link.click();
-        })
-        .catch(() => console.log("error occured"));
+        .then((response) => response.blob())
+        .then((blob) => {
+          let blobUrl = window.URL.createObjectURL(blob);
+          let a = document.createElement("a");
+          a.download = url.replace(/^.*[\\\/]/, "");
+          a.href = blobUrl;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+        });
     },
     liffCloseWindow() {
       liff.closeWindow();
