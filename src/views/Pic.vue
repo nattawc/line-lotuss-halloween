@@ -200,15 +200,6 @@ export default {
     let todate = today.getDate() < 10 ? "0" + today.getDate() : today.getDate();
     this.service = new Service();
     this.submitBuyDate = today.getFullYear() + "-" + month + "-" + todate;
-
-    this.$getLocation()
-      .then((coordinates) => {
-        this.userCoordinates = coordinates;
-        // console.log(coordinates);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   },
   async mounted() {
     await liff.ready;
