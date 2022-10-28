@@ -1,0 +1,38 @@
+.swal2-container {
+  font-family: "Sukhumvit Set", sans-serif !important;
+  font-size: 15px !important;
+}
+.swal2-container ul {
+  list-style: disc;
+  margin-left: 25px;
+  text-align: left !important;
+}
+.swal2-content {
+  font-size: 16px !important;
+}
+.swal2-title {
+  font-size: 24px !important;
+  font-weight: 900 !important;
+}
+.swal2-icon-error .swal2-title {
+  color: #991b1b !important;
+}
+.swal2-icon.swal2-error {
+  border-color: #991b1b !important;
+  color: #991b1b !important;
+}
+.swal2-icon.swal2-error [class^="swal2-x-mark-line"] {
+  background: #991b1b !important;
+}
+.swal2-styled.swal2-confirm {
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  border-radius: 5px !important;
+  padding: 10px 30px;
+}
+.swal2-styled.swal2-cancel {
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  border-radius: 5px !important;
+  padding: 10px 30px;
+}

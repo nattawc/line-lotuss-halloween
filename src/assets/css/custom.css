@@ -1,0 +1,24 @@
+html,
+body {
+  font-family: "LotussSmartHL", sans-serif !important;
+  background: url("../images/footer.png") no-repeat bottom center;
+  background-size: 100% auto;
+  /* background-attachment: fixed; */
+  background-color: #079da1;
+}
+#app {
+  height: 100vh;
+}
+.font-bold {
+  font-family: "LotussSmartHL-Bold", sans-serif !important;
+}
+.font-semibold {
+  font-family: "LotussSmartHL-Medium", sans-serif !important;
+}
+#header {
+  /* background: url("../images/header.png") no-repeat top center;
+  background-size: 100% auto;
+   background-attachment: fixed; 
+  background-color: #079da1; */
+  min-height: 600px;
+}
